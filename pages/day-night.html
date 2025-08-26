@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Theme Switcher</title>
+    <link rel="stylesheet" href="../CSS/day-night.css" />
+  </head>
+
+  <body>
+    <span class="icon emoji">⭐</span>
+    <div class="theme-switcher">
+      <input type="checkbox" id="toggle" />
+      <label for="toggle" class="switch">
+        <span class="icon sun">🌞</span>
+        <span class="icon moon">🌙</span>
+        <span class="blob"></span>
+      </label>
+    </div>
+    <span class="icon stars">✨</span>
+
+    <script>
+      // 	const emoji =  "🌞";
+      // console.log(emoji.codePointAt(0).toString(16));
+      // Виведе '2600' для ☀
+      const one_time_star = document.querySelector('.emoji');
+
+      const my_star = document.querySelector('.stars');
+      const toggle = document.getElementById('toggle');
+      const blob = document.querySelector('.blob');
+
+      toggle.addEventListener('change', () => {
+        if (toggle.checked) {
+          blob.style.transform = 'translateX(76px)'; // рух +
+          document.body.style.background = '#1a1a2e'; // нічна тема
+          my_star.style.display = 'block'; // показати div
+        } else {
+          blob.style.transform = 'translateX(0)'; // повернення до сонця
+          document.body.style.background = '#e0f0ff'; // денна тема
+          my_star.style.display = 'none'; // сховати div
+
+          
+        //  Анімація зірки
+          document.addEventListener('click', () => {
+            let start = null;
+            let opacity = 1;
+            const duration =2000; // тривалість (мс)
+            const startX = 0,
+              endX = 150;
+            const startY = 0,
+              endY = 450;
+            const startScale = 1,
+              endScale = 20;
+
+            // easing-функція bounce
+            function easeOutBounce(t) {
+              if (t < 1 / 2.75) {
+                return 7.5625 * t * t;
+              } else if (t < 2 / 2.75) {
+                return 7.5625 * (t -= 1.5 / 2.75) * t + 0.75;
+              } else if (t < 2.5 / 2.75) {
+                return 7.5625 * (t -= 2.25 / 2.75) * t + 0.9375;
+              } else {
+                return 7.5625 * (t -= 2.625 / 2.75) * t + 0.984375;
+              }
+            }
+
+            function animate(time) {
+              if (!start) start = time;
+              let progress = (time - start) / duration;
+              if (progress > 1) progress = 1;
+
+              // застосовуємо bounce
+              let ease = easeOutBounce(progress);
+
+              let x = startX + (endX - startX) * ease;
+              let y = startY + (endY - startY) * ease;
+              let s = startScale + (endScale - startScale) * ease;
+              let angle = progress * -240;
+
+              // поступово зменшуємо opacity
+              opacity = 1 - progress;
+
+              one_time_star.style.transform = `translateX(${x}px) translateY(${y}px) rotate(${angle}deg) scale(${s})`;
+              one_time_star.style.opacity = opacity;
+
+              if (progress < 1) {
+                requestAnimationFrame(animate);
+              } else {
+                // one_time_star.style.display = 'none'; 
+              }
+            }
+            requestAnimationFrame(animate);
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
