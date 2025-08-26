@@ -1,0 +1,60 @@
+ <!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Theme Switcher</title>
+<link rel="stylesheet" href="../CSS/switchTheme.css">
+
+<body class="light">
+    <div>
+    <h1>Мій прикол</h1>
+      </div>
+  <div class="toggle-wrapper">
+  
+  <div class="toggle">
+
+    <div class="circle">✨</div>
+  </div>
+  </div>
+  <div class="text">
+  <h2 class="title">Tема День-Ніч</h2>
+  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio sit earum adipisci ad incidunt molestias aspernatur, exercitationem quod provident ea eaque at veritatis ducimus saepe itaque cupiditate! Dolorum explicabo placeat dicta! Dolorem libero tempore aspernatur, debitis necessitatibus culpa natus consectetur laudantium ea similique qui placeat illum eveniet? Dicta molestias eius, minima id voluptatem perferendis reiciendis? Consequuntur similique optio suscipit deserunt quo obcaecati, voluptates saepe ea veritatis dolor vero voluptatem praesentium enim laboriosam sit modi quia soluta ad corrupti qui? Doloremque praesentium quia architecto veniam quibusdam nemo harum ipsa tempora modi quidem molestiae voluptatum optio ut, quos tenetur, a consectetur magnam ipsam delectus maiores officiis odio? Praesentium magnam quia accusantium non corrupti? Labore dolore beatae delectus obcaecati quisquam repellendus doloribus excepturi tempora, neque soluta pariatur quidem necessitatibus earum. Libero repudiandae dolores sequi veritatis molestiae in? Voluptas adipisci animi provident impedit nostrum nihil eveniet cumque voluptatem illum esse, placeat est non magni quasi mollitia iure at? Veritatis, rem molestias voluptatibus, qui non culpa tenetur facilis maiores eos laboriosam dolorem autem quidem ab error aut et, tempore id dignissimos iusto! Sint earum voluptatibus beatae necessitatibus error ipsum praesentium nostrum nesciunt vitae ut officiis natus porro ipsam fugit eius delectus ea qui, fugiat repudiandae adipisci ex deserunt, sunt molestiae sequi. A magnam odio explicabo nihil, facilis debitis quo ex expedita modi quisquam velit, corporis molestias deleniti saepe ducimus aut neque alias id qui blanditiis. Vitae similique harum ab dolore facilis laudantium, quisquam nam, veritatis perferendis impedit maiores ducimus possimus eos quae earum qui ratione quia voluptatem. Voluptate, nihil suscipit eveniet quibusdam nobis, sed nemo cum repellendus odio distinctio molestiae, in modi blanditiis. Porro ab ex laboriosam perspiciatis perferendis. Magni reiciendis corporis rem ad fugit, voluptas debitis libero repellendus quis accusamus obcaecati expedita consectetur veritatis aspernatur dicta earum? Quaerat aspernatur vitae hic dolorum suscipit laudantium.</p>
+  </div>
+  <script>
+  const body = document.body;
+  const toggle = document.querySelector('.toggle');
+  const circle = document.querySelector('.circle');
+
+  // Функція перемикання теми
+  function switchTheme() {
+  if (body.classList.contains('light')) {
+    body.classList.remove('light');
+    body.classList.add('gray');
+    circle.textContent = '✨';
+    localStorage.setItem('theme', 'gray');
+  } else if (body.classList.contains('gray')) {
+    body.classList.remove('gray');
+    body.classList.add('dark');
+    circle.textContent = '🌙';
+    localStorage.setItem('theme', 'dark');
+  } else {
+    body.classList.remove('dark'); 
+    body.classList.add('light');
+    circle.textContent = '🌞';
+    localStorage.setItem('theme', 'light');
+  }
+}
+  toggle.addEventListener('click', switchTheme);
+
+  // При завантаженні сторінки — читаємо localStorage
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme) {
+    body.classList.remove('light','gray', 'dark');
+    body.classList.add(savedTheme);
+    circle.textContent = savedTheme === 'light' ? '🌞' :(savedTheme === 'gray' ?'✨' : '🌙');
+  }
+</script>
+</div>
+</body>
+</html>  

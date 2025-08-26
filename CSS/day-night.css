@@ -1,0 +1,68 @@
+ body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 100vh; */
+    background: #ffffff;
+    transition: background 0.5s ease;
+    font-family: sans-serif;
+  }
+
+  .theme-switcher {
+    position: relative;
+		
+  }
+
+  .switch {
+    position: relative;
+    width: 110px;
+    height: 50px;
+    background: rgba(255, 174, 0, 0.267);
+    border-radius: 50px;
+		border: 1px solid rgb(61, 61, 61);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 9px;
+		margin: 20px;
+    cursor: pointer;
+    overflow: hidden;
+		box-shadow:
+    /* 0 1px 20px rgba(255, 218, 9, 0.527),   зовнішня м’яка тінь */
+		 110px 0 100px rgba(0, 217, 255, 0.527),   /* зовн тінь stars */
+    inset 0 4px 8px rgba(0, 0, 0, 0.6), /* внутрішнє затемнення зверху */
+    inset 0 -4px 6px rgba(255, 255, 255, 0.6);     /* внутрішнє світло знизу */
+  transition: transform 0.5s cubic-bezier(0.68,-0.55,0.265,1.55);
+  }
+
+  .icon {
+    font-size: 25px;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .one_time_star{
+    font-size: 64px;
+  }
+
+  .blob {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 40px;
+    height:40px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+		border: 1px solid gray;
+    box-shadow:
+    0 8px 20px rgba(0,0,0,0.3),   /* зовнішня м’яка тінь */
+    inset 3px 4px 3px rgba(255, 255, 255, 0.6), /* внутрішнє світло зверху */
+    inset 0 -4px 3px rgba(0,0,0,0.6);     /* внутрішнє затемнення знизу */
+  transition: transform 0.5s cubic-bezier(0.68,-0.55,0.265,1.55); /*ніби відскакує*/
+  z-index: 1;
+  
+  }
+
+  #toggle {
+    display: none;
+  }
