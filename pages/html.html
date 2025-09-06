@@ -9,138 +9,16 @@
 </head>
 <body>
 
-<!-- 
-<style>
-    :root {
-      --bg: #0b1020;
-      --card: #11162a;
-      --card-alt: #0e1426;
-      --text: #e9ecf1;
-      --muted: #9aa3b2;
-      --accent: #8ab4ff;
-      --stroke: #26304a;
-      --code-bg: #0a0f1f;
-    }
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
-      line-height: 1.6;
-    }
-    .wrap {
-      max-width: 900px;
-      margin: 32px auto;
-      padding: 0 16px 64px;
-    }
-    header h1 {
-      margin: 0 0 6px;
-      font-size: clamp(22px, 3.2vw, 32px);
-      letter-spacing: 0.3px;
-    }
-    header p {
-      margin: 0 0 18px;
-      color: var(--muted);
-    }
-
-    /* Toolbar */
-    .tools {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-      margin: 12px 0 22px;
-      flex-wrap: wrap;
-    }
-    .tools input[type="search"] {
-      flex: 1 1 260px;
-      padding: 10px 12px;
-      border-radius: 12px;
-      border: 1px solid var(--stroke);
-      background: var(--card);
-      color: var(--text);
-      outline: none;
-    }
-    .btn {
-      padding: 10px 12px;
-      border-radius: 12px;
-      border: 1px solid var(--stroke);
-      background: var(--card);
-      color: var(--text);
-      cursor: pointer;
-      transition: transform 0.05s ease, background 0.2s ease, border-color 0.2s ease;
-      user-select: none;
-    }
-    .btn:hover { background: var(--card-alt); border-color: #314066; }
-    .btn:active { transform: translateY(1px); }
-
-    /* FAQ cards */
-    details.faq {
-      background: linear-gradient(180deg, var(--card), var(--card-alt));
-      border: 1px solid var(--stroke);
-      border-radius: 14px;
-      padding: 0;
-      margin: 12px 0;
-      overflow: clip;
-    }
-    summary {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      list-style: none;
-      cursor: pointer;
-      padding: 14px 16px;
-      font-weight: 600;
-      letter-spacing: .2px;
-      user-select: none;
-    }
-    /* remove default marker */
-    summary::-webkit-details-marker { display: none; }
-    .chev {
-      width: 1em;
-      text-align: center;
-      transition: transform .2s ease;
-      color: var(--accent);
-      font-weight: 700;
-    }
-    details[open] .chev { transform: rotate(90deg); }
-    .answer {
-      padding: 0 16px 16px;
-      color: var(--text);
-    }
-    .muted { color: var(--muted); }
-
-    /* Code */
-    code, pre, kbd, samp, var {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    }
-    pre {
-      margin: 10px 0 0;
-      padding: 12px 14px;
-      border-radius: 12px;
-      background: var(--code-bg);
-      border: 1px solid var(--stroke);
-      overflow: auto;
-      -webkit-overflow-scrolling: touch;
-    }
-    code { background: rgba(138,180,255,0.12); padding: 0 4px; border-radius: 6px; } -->
-
-    
-  </style> 
 </head>
 <body>
   <div class="wrap">
-    <header>
-      <h1>HTML FAQ — Шпаргалка</h1>
-      <p class="muted">Питання відкриваються/закриваються по кліку. Є пошук та кнопки «Відкрити/Закрити всі».</p>
+        <h1>HTML FAQ — Шпаргалка</h1>
       <div class="tools">
         <input id="q" type="search" placeholder="Пошук по питаннях і відповідях…" />
         <button id="openAll" class="btn" type="button">Відкрити всі</button>
         <button id="closeAll" class="btn" type="button">Закрити всі</button>
       </div>
-    </header>
-
-    <div class="section">Базові концепції HTML</div>
+  
 
     <!-- 1 -->
     <details class="faq">
@@ -272,7 +150,7 @@
       </div>
     </details>
 
-    <div class="section">Основи роботи з текстом і структурою</div>
+    <!-- <div class="section">Основи роботи з текстом і структурою</div> -->
 
     <!-- 11 -->
     <details class="faq">
@@ -1131,6 +1009,25 @@
 </details>
 
 
+<details class="faq">
+  <summary><span class="chev">▸</span> Що робить <code>font-size: clamp(22px, 3.2vw, 32px);</code>?</summary>
+  <div class="answer">
+    <p>Властивість <code>clamp(MIN, PREFERRED, MAX)</code> задає значення, яке завжди буде між мінімумом і максимумом.</p>
+    <pre><code>font-size: clamp(22px, 3.2vw, 32px);</code></pre>
+    <ul>
+      <li><strong>22px</strong> → мінімальний розмір (менше ніколи не стане)</li>
+      <li><strong>3.2vw</strong> → бажане (динамічне, залежить від ширини вікна)</li>
+      <li><strong>32px</strong> → максимальний розмір (більше не виросте)</li>
+    </ul>
+    <p>Шрифт гнучко підлаштовується під екран:  
+      від 22px до 32px, а між ними масштабується через <code>vw</code>.</p>
+      <p>1vw = 1% від ширини вікна браузера (viewport width).</p>
+<p>Якщо ширина вікна = 1000px, тоді 1vw = 10px.</p>
+<p>Якщо ширина вікна = 500px, тоді 1vw = 5px.</p>
+  </div>
+</details>
+
+
 <!-- 1 -->
 <details class="faq"><summary><span class="chev">▸</span> 1. Що таке HTML?</summary><div class="answer"><p>HTML (HyperText Markup Language) — це стандартна мова розмітки для створення веб-сторінок.</p></div></details>
 
@@ -1455,8 +1352,133 @@
     // Відкрити/закрити всі
     document.getElementById('openAll').addEventListener('click', () => items.forEach(d => d.open = true));
     document.getElementById('closeAll').addEventListener('click', () => items.forEach(d => d.open = false));
-  </script>
+   </script>
 
+ <script>
+function setTheme(theme) {
+  const root = document.documentElement;
+
+  const themes = {
+    light: {
+      '--bg': '#d2dbe4',
+      '--card': '#f9f9fa',
+      '--card-alt': '#bac4e09c',
+      '--text': '#0a0f1f',
+      '--text-alt': '#ffffff',
+      '--accent': '#8ab4ff',
+      '--stroke': '#0e1426',
+      '--code-bg': '#0a0f1f'
+    },
+    dark: {
+      '--bg': '#0b1020',
+      '--card': '#11162a',
+      '--card-alt': '#0e1426',
+      '--text': '#e9ecf1',
+      '--text-alt': '#ffffff',
+      '--accent': '#8ab4ff',
+      '--stroke': '#26304a',
+      '--code-bg': '#0a0f1f'
+    },
+    green: {
+      '--bg': '#e6f2e6',
+      '--card': '#d9f0d9',
+      '--card-alt': '#b0e0b0',
+      '--text': '#0f3d0f',
+      '--text-alt': '#ffffff',
+      '--accent': '#33cc33',
+      '--stroke': '#0a5a0a',
+      '--code-bg': '#0f3d0f'
+    },
+    red: {
+      '--bg': '#fdeaea',
+      '--card': '#f9d9d9',
+      '--card-alt': '#f0b0b0',
+      '--text': '#3d0f0f',
+      '--text-alt': '#ffffff',
+      '--accent': '#ff3333',
+      '--stroke': '#5a0a0a',
+      '--code-bg': '#3d0f0f'
+    },
+   
+  orange: {
+    '--bg': '#fff2e6',
+    '--card': '#ffe0cc',
+    '--card-alt': '#ffc299',
+    '--text': '#4d2600',
+    '--text-alt': '#ffffff',
+    '--accent': '#ff9933',
+    '--stroke': '#663300',
+    '--code-bg': '#4d2600'
+  },
+  yellow: {
+    '--bg': '#fffbe6',
+    '--card': '#fff5cc',
+    '--card-alt': '#fff099',
+    '--text': '#665900',
+    '--text-alt': '#000000',
+    '--accent': '#ffeb3b',
+    '--stroke': '#998800',
+    '--code-bg': '#665900'
+  },
+  green: {
+    '--bg': '#e6f2e6',
+    '--card': '#d9f0d9',
+    '--card-alt': '#b0e0b0',
+    '--text': '#0f3d0f',
+    '--text-alt': '#ffffff',
+    '--accent': '#33cc33',
+    '--stroke': '#0a5a0a',
+    '--code-bg': '#0f3d0f'
+  },
+  blue: {
+    '--bg': '#e6f0fd',
+    '--card': '#d9e6f9',
+    '--card-alt': '#b0cce6',
+    '--text': '#0f1f3d',
+    '--text-alt': '#ffffff',
+    '--accent': '#3388cc',
+    '--stroke': '#0a1a5a',
+    '--code-bg': '#0f1f3d'
+  },
+  indigo: {
+    '--bg': '#ece6fd',
+    '--card': '#d9ccf9',
+    '--card-alt': '#b0a0e6',
+    '--text': '#1f0f3d',
+    '--text-alt': '#ffffff',
+    '--accent': '#6633cc',
+    '--stroke': '#1a0a5a',
+    '--code-bg': '#1f0f3d'
+  },
+  violet: {
+    '--bg': '#f4e6fd',
+    '--card': '#e6d9f9',
+    '--card-alt': '#cca0e6',
+    '--text': '#3d0f3d',
+    '--text-alt': '#ffffff',
+    '--accent': '#9933cc',
+    '--stroke': '#5a0a5a',
+    '--code-bg': '#3d0f3d'
+  },
+  pink: {
+    '--bg': '#fde6f0',
+    '--card': '#f9d9e6',
+    '--card-alt': '#f0b0cc',
+    '--text': '#3d0f1f',
+    '--text-alt': '#ffffff',
+    '--accent': '#ff33aa',
+    '--stroke': '#5a0a2a',
+    '--code-bg': '#3d0f1f'
+  }
+
+  };
+
+  const selected = themes[theme];
+  for (let key in selected) {
+    root.style.setProperty(key, selected[key]);
+  }
+}
+</script>
 	
 
 </body>

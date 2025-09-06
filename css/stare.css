@@ -1,0 +1,225 @@
+/* color: #7dafff; */
+/* body {
+  background-color: #bbc7d4;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  max-width: 1400px;
+  margin: 30px auto;
+  line-height: 1.6;
+  color: #383838;
+} */
+
+details {
+  max-width: 1200px; /* тримаємо максимум */
+  width: 100%; /* розтягуємо на всю доступну ширину */
+  box-sizing: border-box; /* щоб padding не розтягував блок */
+  margin-bottom: 10px;
+  border: 1px solid #979090;
+  border-radius: 8px;
+  /* padding: 10px; */
+  background: #f9f9f9;
+  cursor: pointer;
+}
+details > * {
+  max-width: 100%; /* всі дочірні елементи не виходять за межі */
+  box-sizing: border-box;
+}
+
+summary {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+details[open] {
+  /* color: #979090; */
+  /*  background: #eef7ff;*/
+  border-color: #7dafff;
+}
+
+pre,
+code {
+  background: #a9b4c5;
+  color: #ffffff;
+  padding: 5px 8px;
+  border-radius: 4px;
+  font-family: Consolas, monospace;
+  white-space: pre-wrap; /* переносимо довгі рядки */
+  word-break: break-word; /* переносимо слова */
+  max-width: 100%;
+}
+pre {
+  display: block;
+  padding: 10px;
+  overflow-x: auto;
+}
+
+/* :root {
+      --bg: #0b1020;
+      --card: #11162a;
+      --card-alt: #0e1426;
+      --text: #e9ecf1;
+      --muted: #9aa3b2;
+      --accent: #8ab4ff;
+      --stroke: #26304a;
+      --code-bg: #0a0f1f;
+    } */
+:root {
+  --bg: #d2dbe4;
+  --card: #f9f9fa;
+  --card-alt: #bac4e09c;
+  --text: #0a0f1f;
+  --text-alt: #ffffff;
+  --muted: #d9ff00;
+  --accent: #8ab4ff;
+  --stroke: #0e1426;
+  --code-bg: #0a0f1f;
+  /* color: #383838; */
+  /* color: #979090; */
+  /* color: #aaa7a7; */
+  /* color: #dbd5d5; */
+}
+html,
+body {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif;
+  line-height: 1.6;
+}
+.wrap {
+  /* max-width: 900px; */
+
+  /* max-width: 1400px; */
+  margin: 32px auto;
+  padding: 0 16px 64px;
+}
+header h1 {
+  /* margin: 0 0 6px; */
+  font-size: clamp(22px, 3.2vw, 32px); /*динамічне значення*/
+  /* letter-spacing: 0.3px; */
+}
+/* header p {
+      margin: 0 0 18px;
+      /* color: var(--muted); }*/
+
+/* Toolbar */
+.tools {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin: 12px 0 22px;
+  flex-wrap: wrap;
+}
+.tools input[type='search'] {
+  flex: 1 1 260px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--stroke);
+  background-color: var(--card);
+  color: var(--text);
+  outline: none;
+}
+.btn {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--stroke);
+  background: var(--card);
+  color: var(--text);
+  cursor: pointer;
+  transition: transform 0.05s ease, background 0.2s ease, border-color 0.2s ease;
+  user-select: none;
+}
+.btn:hover {
+  background: var(--card-alt);
+  border-color: #444242;
+  color: var(--text-alt);
+}
+/* .btn:active { transform: translateY(1px); } */
+
+/* FAQ cards */
+details.faq {
+  background: linear-gradient(180deg, var(--card), var(--card-alt));
+  border: 1px solid var(--stroke);
+  border-radius: 8px;
+  padding: 6px;
+  margin: 8px 0;
+  overflow: clip; /*обрізає все, що за контейнером*/
+}
+
+details.faq {
+  max-width: 1200px;
+  width: 100%;              /* завжди вся ширина */
+  margin: 12px auto;        /* центрування */
+  box-sizing: border-box;
+  border: 1px solid var(--stroke);
+  border-radius: 14px;
+  overflow: hidden;         /* щоб нічого не вилазило */
+}
+
+details.faq .answer {
+  max-width: 100%;          /* відповідність контейнеру */
+  box-sizing: border-box;
+  overflow-wrap: break-word; /* перенос довгих рядків */
+}
+
+details.faq pre {
+  white-space: pre-wrap;    /* щоб код не розтягував */
+  word-break: break-word;
+}
+
+summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  /* list-style: none; */
+  cursor: pointer;
+  /* padding: 14px 16px; */
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  user-select: none; /*забороняє виділення тексту при кліку*/
+}
+/* remove default marker */
+/* summary::-webkit-details-marker { display: none; }
+    .chev {
+      width: 1em;
+      text-align: center;
+      transition: transform .2s ease;
+      color: var(--accent);
+      font-weight: 700;
+    }
+    details[open] .chev { transform: rotate(90deg); }
+    .answer {
+      padding: 0 16px 16px;
+      color: var(--text);
+    }
+    .muted { color: var(--muted); } */
+
+/* Code */
+/* code, pre, kbd, samp, var {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+    pre {
+      margin: 10px 0 0;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: var(--code-bg);
+      border: 1px solid var(--stroke);
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    code { background: rgba(138,180,255,0.12); padding: 0 4px; border-radius: 6px; } --> */
+
+/* анімація для кастомної стрілки */
+.chev {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+/* коли details відкритий — стрілочка повертається */
+details[open] .chev {
+  transform: rotate(90deg);
+	color: var(--text);
+}
