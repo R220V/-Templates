@@ -2,17 +2,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>FAQ HTML</title>
-     <link rel="stylesheet" href="/css/style.css">
-</head>
-<body>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FAQ, Питання для співбесіди">
+  <meta name="author" content="Козюбра Руслан">
+  <title>100 HTML</title>
+
+  <!-- Підключення фавіконки -->
+  <link rel="icon" href="../icons/png/html.png" type="image/x-icon">
+
+  <!-- Підключення скрипта -->
+  <script src="../script/script_theme.js"defer></script>
+  <script src="../script/script_search.js" defer></script>
+  <script src="../script/script_open_close.js"defer></script>
+
+  <!-- Підключення CSS -->
+  <link rel="stylesheet" href="/css/style.css">
 
 </head>
 <body>
+
+ <!-- #region theme+header -->
+    <div class="theme-circle">
+<button class="circle" data-color="red" style="background:red;" onclick="setTheme('red')"></button>
+<button class="circle" data-color="orange" style="background:orange;" onclick="setTheme('orange')"></button>
+<button class="circle" data-color="yellow" style="background:yellow;" onclick="setTheme('yellow')"></button>
+<button class="circle" data-color="green" style="background:green" onclick="setTheme('green')"></button>
+<button class="circle" data-color="skyblue" style="background:skyblue" onclick="setTheme('skyblue')"></button>
+<button class="circle" data-color="blue" style="background:blue;" onclick="setTheme('blue')"></button>
+<button class="circle" data-color="purple" style="background:purple;" onclick="setTheme('purple')"></button>
+<button class="circle" data-color="light" style="background:whitesmoke;" onclick="setTheme('light')"></button>
+<button class="circle" data-color="dark" style="background:black;" onclick="setTheme('dark')"></button>
+
+</div>
+<header class="header container">
+<div class="wrapper">
+  <h1>100 запитань та відповіді по темі:</h1>
+</div>
+</div>
+    <ul class="header-menu">
+      <li class="header-item">
+        <a class="header-link" href="./pages/html.html">
+              <svg class="icon" width="24" height="24">
+                <use href="../icons/sprite-logo.svg#icon-html-5-logo-svg-1"></use>
+              </svg>
+            HTML 5 </a></li>
+      <li class="header-item"><a class="header-link" href="./pages/css.html"><svg class="icon" width="24" height="24">
+                <use href="../icons/sprite-logo.svg#icon-css-3"></use>
+              </svg>CSS</a></li>
+      <li class="header-item"><a class="header-link" href="./pages/java-script.html"><svg class="icon" width="24" height="24">
+                <use href="../icons/sprite-logo.svg#icon-javascript-1"></use>
+              </svg>Java Script</a></li>
+<li class="header-item"><a class="header-link" href="../pages/react.html"><svg class="icon" width="24" height="24">
+                <use href="../icons/sprite-logo.svg#icon-react-2"></use>
+              </svg>React</a></li>
+ <li class="header-item"><a class="header-link" href="./pages/node.html"><svg class="icon" width="24" height="24">
+                <use href="../icons/sprite-logo.svg#icon-nodejs-2"></use>
+              </svg>Node</a></li>
+ </ul>
+ </header>
+<!-- #endregion theme+header -->
+
   <div class="wrap">
-        <h1>HTML FAQ — Шпаргалка</h1>
+        <h2>HTML — Шпаргалка</h2>
       <div class="tools">
         <input id="q" type="search" placeholder="Пошук по питаннях і відповідях…" />
         <button id="openAll" class="btn" type="button">Відкрити всі</button>
@@ -1331,155 +1383,6 @@
 
     <p class="muted" style="margin-top:22px">Підказка: клацай по заголовку, щоб розкрити відповідь. Використай пошук вище для швидкої навігації.</p>
   </div>
-
-  <script>
-    // Пошук по FAQ
-    const input = document.getElementById('q');
-    const items = Array.from(document.querySelectorAll('details.faq'));
-
-    function filter() {
-      const term = input.value.trim().toLowerCase();
-      items.forEach(d => {
-        const text = (d.querySelector('summary')?.innerText + " " + d.querySelector('.answer')?.innerText)
-          .toLowerCase();
-        const hit = text.includes(term);
-        d.style.display = hit ? '' : 'none';
-        if (!hit) d.open = false;
-      });
-    }
-    input.addEventListener('input', filter);
-
-    // Відкрити/закрити всі
-    document.getElementById('openAll').addEventListener('click', () => items.forEach(d => d.open = true));
-    document.getElementById('closeAll').addEventListener('click', () => items.forEach(d => d.open = false));
-   </script>
-
- <script>
-function setTheme(theme) {
-  const root = document.documentElement;
-
-  const themes = {
-    light: {
-      '--bg': '#d2dbe4',
-      '--card': '#f9f9fa',
-      '--card-alt': '#bac4e09c',
-      '--text': '#0a0f1f',
-      '--text-alt': '#ffffff',
-      '--accent': '#8ab4ff',
-      '--stroke': '#0e1426',
-      '--code-bg': '#0a0f1f'
-    },
-    dark: {
-      '--bg': '#0b1020',
-      '--card': '#11162a',
-      '--card-alt': '#0e1426',
-      '--text': '#e9ecf1',
-      '--text-alt': '#ffffff',
-      '--accent': '#8ab4ff',
-      '--stroke': '#26304a',
-      '--code-bg': '#0a0f1f'
-    },
-    green: {
-      '--bg': '#e6f2e6',
-      '--card': '#d9f0d9',
-      '--card-alt': '#b0e0b0',
-      '--text': '#0f3d0f',
-      '--text-alt': '#ffffff',
-      '--accent': '#33cc33',
-      '--stroke': '#0a5a0a',
-      '--code-bg': '#0f3d0f'
-    },
-    red: {
-      '--bg': '#fdeaea',
-      '--card': '#f9d9d9',
-      '--card-alt': '#f0b0b0',
-      '--text': '#3d0f0f',
-      '--text-alt': '#ffffff',
-      '--accent': '#ff3333',
-      '--stroke': '#5a0a0a',
-      '--code-bg': '#3d0f0f'
-    },
-   
-  orange: {
-    '--bg': '#fff2e6',
-    '--card': '#ffe0cc',
-    '--card-alt': '#ffc299',
-    '--text': '#4d2600',
-    '--text-alt': '#ffffff',
-    '--accent': '#ff9933',
-    '--stroke': '#663300',
-    '--code-bg': '#4d2600'
-  },
-  yellow: {
-    '--bg': '#fffbe6',
-    '--card': '#fff5cc',
-    '--card-alt': '#fff099',
-    '--text': '#665900',
-    '--text-alt': '#000000',
-    '--accent': '#ffeb3b',
-    '--stroke': '#998800',
-    '--code-bg': '#665900'
-  },
-  green: {
-    '--bg': '#e6f2e6',
-    '--card': '#d9f0d9',
-    '--card-alt': '#b0e0b0',
-    '--text': '#0f3d0f',
-    '--text-alt': '#ffffff',
-    '--accent': '#33cc33',
-    '--stroke': '#0a5a0a',
-    '--code-bg': '#0f3d0f'
-  },
-  blue: {
-    '--bg': '#e6f0fd',
-    '--card': '#d9e6f9',
-    '--card-alt': '#b0cce6',
-    '--text': '#0f1f3d',
-    '--text-alt': '#ffffff',
-    '--accent': '#3388cc',
-    '--stroke': '#0a1a5a',
-    '--code-bg': '#0f1f3d'
-  },
-  indigo: {
-    '--bg': '#ece6fd',
-    '--card': '#d9ccf9',
-    '--card-alt': '#b0a0e6',
-    '--text': '#1f0f3d',
-    '--text-alt': '#ffffff',
-    '--accent': '#6633cc',
-    '--stroke': '#1a0a5a',
-    '--code-bg': '#1f0f3d'
-  },
-  violet: {
-    '--bg': '#f4e6fd',
-    '--card': '#e6d9f9',
-    '--card-alt': '#cca0e6',
-    '--text': '#3d0f3d',
-    '--text-alt': '#ffffff',
-    '--accent': '#9933cc',
-    '--stroke': '#5a0a5a',
-    '--code-bg': '#3d0f3d'
-  },
-  pink: {
-    '--bg': '#fde6f0',
-    '--card': '#f9d9e6',
-    '--card-alt': '#f0b0cc',
-    '--text': '#3d0f1f',
-    '--text-alt': '#ffffff',
-    '--accent': '#ff33aa',
-    '--stroke': '#5a0a2a',
-    '--code-bg': '#3d0f1f'
-  }
-
-  };
-
-  const selected = themes[theme];
-  for (let key in selected) {
-    root.style.setProperty(key, selected[key]);
-  }
-}
-</script>
-	
 
 </body>
 </html>

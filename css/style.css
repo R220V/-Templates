@@ -1,40 +1,40 @@
-* {
-  transition: background var(--transition-speed) ease, color var(--transition-speed) ease, border-color var(--transition-speed) ease;
-}
-
-* {
-  box-sizing: border-box;
-} 
 
 :root {
   --bg: #d2dbe4;
   --card: #f9f9fa;
-  --card-alt: #bac4e09c;
-  --text: #0a0f1f;
+  --card-alt: #bac4e0;
+  --card-accent: #e8ecf0;
+  --text: #303030;
   --text-alt: #ffffff;
-  --accent: #8ab4ff;
+  --accent: #cacde6;
   --stroke: #0e1426;
-  --code-bg: #0a0f1f;
+  --code-bg: #ebebeb;
   --bshadow-alt: 0 0 20px 2px rgba(196, 243, 237, 0.527);
   --bshadow: 0 0 20px 2px rgba(42, 43, 42, 0.527);
-  --transition-speed: 0.6s;
+  --transition-speed: 0.3s;
 }
 
-  body {
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
   margin: 20px;
   padding: 32px;
   background: var(--bg);
   font-family: Inter, system-ui, sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
   color: var(--text);
-  line-height: 1.6;  
 }
 
 ul,
 ol {
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-left: 0;
-  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 h1,
@@ -44,14 +44,16 @@ h4,
 h5,
 h6,
 p {
-  margin-top: 0;
-  margin-bottom: 0;
+  margin: 0;
 }
-h1 {
+
+h1,
+h2 {
   display: flex;
-  color: var(--text);
   justify-content: center;
   align-items: center;
+  margin: 20px auto;
+  color: var(--text);
 }
 
 a {
@@ -60,7 +62,7 @@ a {
 }
 
 .container {
-  max-width: 1400px;
+  max-width: 1200px;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -70,7 +72,7 @@ a {
 
 header {
   padding: 20px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   background-color: var(--card-alt);
   border: 1px solid #383838;
   border-radius: 8px;
@@ -91,49 +93,113 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* padding: 10px;   */
 }
 
 .header-link {
-  max-width: 140px;
-    white-space: nowrap;
-  padding: 0 8px;  
-  display: inline-flex;       /* розміщуємо елементи в ряд */
-  align-items: center;        /* вирівнюємо по вертикалі */
-  gap: 10px; 
-                  /* відстань між іконкою і текстом */
-  text-decoration: none;      /* прибирає підкреслення */
-  color: inherit;             /* колір тексту як у батьківського елемента */
-   font-weight: 500;
-  /*min-width: 140px;  однакова мінімальна ширина */
-  height: 40px;    /*  однакова висота кнопки */
+  min-width: 140px;
+  white-space: nowrap;
+  padding: 0 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
+  font-weight: 500;
+  height: 40px;
   border: 1px solid #383838;
   border-radius: 8px;
   background: var(--card);
   color: var(--text-logo);
   text-align: center;
-  justify-content: center; 
-  box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.3),
-              inset 0 -3px 4px rgba(255, 255, 255, 0.3);
+  justify-content: center;
+  box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.3), inset 0 -3px 4px rgba(255, 255, 255, 0.3);
   transition: background 0.3s, color 0.3s, transform 0.3s;
-  
 }
 .header-link:hover {
-  background: var(--card-alt);
-  color: var(--text-alt);
+  background: var(--card-accent);
+  color: var(--text);
   transform: translateY(-2px);
 }
 
-.icon{
+.icon {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 24px;
   height: 24px;
   fill: currentColor;
-    filter: drop-shadow(1px 1px 3px black);
+  filter: drop-shadow(1px 1px 3px black);
+  flex-shrink: 0;
+}
 
-   /* flex-shrink: 0;            іконка не стискається */
+
+.wrap {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.tools {
+  position: sticky;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  padding: 15px;
+
+  border: 1px solid black;
+  border-radius: 8px;
+  background: linear-gradient(0deg, var(--card-accent), var(--card-alt));
+  box-shadow: 0 0 15px var(--text);
+  z-index: 3;
+}
+
+.tools input[type='search'] {
+  flex: 1 1 260px;
+  padding: 10px 12px;
+  font-size: 18px;
+  border-radius: 8px;
+
+  border: 1px solid var(--stroke);
+  background-color: var(--card);
+  color: var(--text);
+
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tools input[type='search']:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 6px var(--accent);
+}
+
+.btn {
+  flex: 0 0 auto;
+  padding: 10px 16px;
+
+  border-radius: 8px;
+  font-size: 18px;
+  border: 1px solid var(--stroke);
+
+  background: var(--code-bg);
+  color: var(--text);
+  cursor: pointer;
+
+  user-select: none;
+  transition: transform 0.1s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.btn:hover {
+  background: var(--card-alt);
+  border-color: #444242;
+  color: var(--text);
+}
+
+.btn:active {
+  transform: translateY(1px);
 }
 
 details.faq {
@@ -141,10 +207,12 @@ details.faq {
   max-width: 1200px;
   margin: 12px auto;
   padding: 10px;
-  border-radius: 8px;
-  background: linear-gradient(180deg, var(--card), var(--card-alt));
+
   border: 1px solid var(--stroke);
+  border-radius: 8px;
   box-sizing: border-box;
+
+  background: linear-gradient(180deg, var(--card), var(--card-alt));
   overflow: hidden;
   cursor: pointer;
 }
@@ -161,10 +229,11 @@ summary {
 .chev {
   display: inline-block;
   transition: transform 0.3s ease;
+  scale: 1.5;
 }
 
 details[open] .chev {
-  transform: rotate(90deg);
+  transform: rotate(90deg) scale(1.2);
   display: inline-block;
   transition: transform 0.3s ease;
   color: var(--accent);
@@ -180,36 +249,40 @@ details[open] .chev {
 
 pre,
 code {
-    background: var(--code-bg);
-  color: var(--text-alt);
+  background: var(--code-bg);
+  color: var(--text);
   border-radius: 4px;
-  padding: 5px 8px;
+  border: 1px solid var(--text);
+  padding: 3px 5px;
   font-family: Consolas, monospace;
   white-space: pre-wrap;
   word-break: break-word;
   max-width: 100%;
+  font-size: 18px;
+  overflow-x: auto;
 }
 
 pre {
   display: block;
   padding: 10px;
+  background: var(--code-bg);
   overflow-x: auto;
+  font-size: 14px
 }
 
-
-
-.theme-circle{
+.theme-circle {
   position: fixed;
   top: 0;
   right: 0;
   display: flex;
-  gap: 6px;  
+  gap: 6px;
   margin: 6px;
   padding: 3px;
   border-radius: 6px;
   border: 1px solid var(--stroke);
   cursor: pointer;
-  box-shadow: 0 0 30px var(--stroke);
+  box-shadow: 0 0 12px rgba(0,0,0,0.4);
+
 }
 .circle {
   width: 13px;
