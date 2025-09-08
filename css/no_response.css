@@ -20,6 +20,7 @@
 }
 
 body {
+  /* position: relative; */
   margin: 20px;
   padding: 32px;
   background: var(--bg);
@@ -287,7 +288,7 @@ pre {
 .circle {
   width: 13px;
   height: 13px;
-  background: rgb(255, 0, 0);
+  background: rgba(255, 255, 255, 0.575);
   border: 1px solid rgb(228, 227, 227);
   outline: 1px solid rgb(36, 36, 36);
   border-radius: 50%;
@@ -337,68 +338,5 @@ pre {
   }
   50% {
     transform: translateY(6px);
-  }
-}
-
-/* ----------response----------- */
-/* @media (min-width: 768px) {
-} */
-/* @media (min-width: 1158px) {
-  } */
-
-
-@media (min-width: 320px) {
-
-body {
-  margin: 0;
-  padding: 0;
-  font-size: 14px;
-  line-height: 1.4;
-}
-.theme-circle {
-  margin-top: 10px;
-  top: 0;
-  right: 50%;
-  transform: translateX(50%);
-  gap: 5px;
-  margin: 0 0 4px;
-  border-radius: 50px;
-  background-color:#c0c0c0;
-  z-index: 6;
-}
-
-header {
-  padding: 8px;
-  border: none;
-  border-radius:0;
-}
- .header-menu {
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  padding: 0;
-  margin: 1rem 0;
-}
-p {
-  padding-left: 8px;
-  overflow-wrap: break-word;
-}
-h1 {
-  font-size: 1.5rem;
-  text-align: center;
-
-}
-img {
-  max-width: 100%;
-  height: auto;
-   display: block;
-}
-
-@media print {
-  .theme-circle{
-    display: none;
-  }
-  .btn{
-    display: none;
-  }
   }
 }
