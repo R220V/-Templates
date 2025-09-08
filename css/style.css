@@ -20,7 +20,7 @@
 }
 
 body {
-  position: relative;
+  /* position: relative; */
   margin: 20px;
   padding: 32px;
   background: var(--bg);
@@ -35,6 +35,9 @@ ol {
   margin: 0;
   padding: 0;
   list-style: none;
+}
+img{
+  display: block;
 }
 
 h1,
