@@ -355,7 +355,7 @@ pre {
     top: 0;
     right: 50%;
     transform: translateX(50%);
-    gap: 6px;
+    gap: 9px;
     margin: 0;
     /* border-radius: 50px; */
     background-color: #c0c0c0;
@@ -364,7 +364,7 @@ pre {
     /* box-shadow: 30px 0 20px var(--accent); */
   }
   .circle {
-  width: 20px;
+  width: 24px;
   height: 10px;
    border-radius: 0;
   }
@@ -432,7 +432,7 @@ pre {
 }
 .icon-scroll-down {
 
-  top: 760px;
+  top: 680px;
   right: 0;
   z-index: 4;
    transform:  scale(0.7);
