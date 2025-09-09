@@ -337,12 +337,14 @@ pre {
 }
 
 /* ----------response----------- */
+/* 576 */
 /* @media (min-width: 768px) {
 } */
+ /* 1024 */
 /* @media (min-width: 1158px) {
   } */
 
-@media (max-width: 375px) {
+@media (min-width: 320px) {
   body {
     margin: 0;
     padding: 0;
@@ -350,17 +352,22 @@ pre {
     line-height: 1.4;
   }
   .theme-circle {
-    margin-top: 10px;
-    top: 1%;
+    top: 0;
     right: 50%;
     transform: translateX(50%);
-    gap: 5px;
+    gap: 6px;
     margin: 0;
-    border-radius: 50px;
+    /* border-radius: 50px; */
     background-color: #c0c0c0;
-    z-index: 6;
+    padding: 9px 60px;
+    z-index: 3;
+    /* box-shadow: 30px 0 20px var(--accent); */
   }
-
+  .circle {
+  width: 20px;
+  height: 10px;
+   border-radius: 0;
+  }
   header {
     padding: 8px;
     border: none;
@@ -407,15 +414,105 @@ pre {
     padding-top: 30px;
   }
   h2 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     text-align: center;
-    padding-top: 10px;
-
+    padding: 0 0 10px 0;
+  }
     img {
       max-width: 100%;
       height: auto;
       display: block;
     }
+
+    /* scroll -----------------*/
+.icon-scroll-up {
+  top:0;
+  right:0;
+  transform: rotate(180deg) scale(0.7);
+}
+.icon-scroll-down {
+
+  top: 760px;
+  right: 0;
+  z-index: 4;
+   transform:  scale(0.7);
+}
+.hero-icon-scroll-down {
+  position: absolute;
+  content: '';
+  top: 50%;
+  right: 50%;
+  color: #19161a;
+  transform: translate(50%, -50%);
+}
+.wrap-content {
+  padding: 6px;
+}
+
+.tools {
+
+  top: 30px;
+  left: 0;
+
+ flex-wrap: wrap;
+  gap: 6px;
+  padding: 6px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+}
+
+.tools input[type='search'] {
+  flex: 1 1 150px;
+  padding: 4px;
+  font-size: 16px;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn {
+  flex: 1 1 auto;
+  padding: 4px 6px;
+  border-radius: 6px;
+  font-size: 16px;
+}
+details.faq {
+ 
+  margin: 6px auto;
+  padding: 3px;
+  border-radius: 6px;
+}
+
+summary {
+display: block;
+  gap: 5px;
+  }
+
+  .chev {
+  scale: 1;
+}
+.answer {
+  margin-top:6px;
+}
+
+pre,
+code {
+display: inline-block;
+  padding:0;
+   /* width: 100%; */
+  border-radius: 4px;
+  font-family: Consolas, monospace;
+  font-size:1em;
+  white-space: pre-wrap;   /* зберігає пробіли/переноси */
+  word-break: break-word;  /* переносить довгі слова */
+ 
+       }       /* щоб не вилазив */
+pre {
+  /* display: flex; */
+  /* padding: 1px; */
+
+  font-size: clamp(14px, 2vw, 16px);
+}
 
     @media print {
       .theme-circle {
@@ -425,5 +522,6 @@ pre {
         display: none;
       }
     }
+
+    
   }
-}
