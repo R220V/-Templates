@@ -44,8 +44,8 @@ function setTheme(theme) {
   },
   green: {
     '--bg': '#ebffebff',
-    '--card': '#deffd6ff',
-    '--card-alt': '#f7fff1ff',
+    '--card': '#f7fff1ff',
+    '--card-alt': '#deffd6ff',
       '--card-accent':'#e5ffedff',
     '--text': '#0f3d0f',
      '--text-logo': '#005e05ff',
@@ -105,17 +105,17 @@ function setTheme(theme) {
     },
 
     dark: {
-      '--bg': '#0c101dff',
-      '--card': '#1a173dff',
-      '--card-alt': '#111111ff',
-       '--card-accent':'#000000ff',
-      '--text': '#e9e9e9ff',
+      '--bg': '#0d1531ff',
+      '--card': '#090735ff',
+      '--card-alt': '#06050eff',
+       '--card-accent':'#1f1f1fff',
+      '--text': '#ddd9d9ff',
       '--text-logo':'#e9ecf1',
       '--text-alt': '#ffffff',
       '--accent': '#e2ecffff',
       '--stroke': '#26304a',
-      '--code-bg': '#1b2547ff',
-      '--bshadow': '0 0 20px 2px rgba(196, 243, 237, 0.56)'
+      '--code-bg': '#22252eff',
+      '--bshadow': '0 0 10px 2px rgba(196, 243, 237, 0.56)'
     },
 
   };

@@ -1,4 +1,4 @@
- // Пошук по FAQ
+
     const input = document.getElementById('q');
     const items = Array.from(document.querySelectorAll('details.faq'));
 
