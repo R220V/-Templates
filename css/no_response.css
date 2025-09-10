@@ -55,7 +55,7 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 20px auto;
+  /* margin: 20px auto; */
   color: var(--text);
 }
 
@@ -82,10 +82,10 @@ header {
   box-shadow: var(--bshadow);
 }
 
-.wrapper {
+/* .wrapper {
   margin-bottom: 20px;
   width: 100%;
-}
+} */
 .header-menu {
   display: flex;
   justify-content: center;
@@ -135,7 +135,7 @@ header {
   flex-shrink: 0;
 }
 
-.wrap {
+.wrap-content {
   position: relative;
   max-width: 1200px;
   margin: 0 auto;
